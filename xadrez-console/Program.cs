@@ -11,7 +11,9 @@ namespace xadrez_console
             var tab = new Tabuleiro(8, 8);
 
             tab.ColocaPeca(new Torre(tab, Cor.Branca), new Posicao(0, 0));
+            tab.ColocaPeca(new Rei(tab, Cor.Branca), new Posicao(1, 9));
             tab.ColocaPeca(new Rei(tab, Cor.Branca), new Posicao(1, 3));
+
             tab.ColocaPeca(new Torre(tab, Cor.Branca), new Posicao(2, 4));
 
 
