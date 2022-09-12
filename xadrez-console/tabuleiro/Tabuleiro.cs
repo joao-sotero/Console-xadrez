@@ -15,7 +15,7 @@ namespace xadrez_console.tabuleiro
             pecas = new Peca[linhas, colunas];
         }
 
-        public Peca peca(int linha, int coluna)
+        public Peca Peca(int linha, int coluna)
         {
             return pecas[linha, coluna];
         }
@@ -25,6 +25,16 @@ namespace xadrez_console.tabuleiro
             return pecas[posicao.Linha, posicao.Coluna];
         }
 
+        public Peca RemovePeca(Posicao posicao)
+        {
+            if(Peca(posicao) == null)
+                return null;
+
+            Peca aux = Peca(posicao);
+            aux.Posicao = null;
+            pecas[posicao.Linha, posicao.Coluna] = null;
+            return aux;
+        }
         public void ColocaPeca(Peca peca, Posicao posicao)
         {
             if (ExistPeca(posicao))
