@@ -28,6 +28,28 @@ namespace xadrez_console
             return new PosicaoXadrez(coluna, linha);
         }
 
+        public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
+        {
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;   
+            for (int i = 0; i < tab.Linhas; i++)
+            {
+                Console.Write(tab.Linhas - i + " ");
+                for (int j = 0; j < tab.Colunas; j++)
+                {
+                    if (posicoesPossiveis[i, j])
+                        Console.BackgroundColor = fundoAlterado;
+                    else
+                        Console.BackgroundColor = fundoOriginal;
+
+                    ImprimirPeca(tab.Peca(i, j));
+                }
+                Console.WriteLine();
+            }
+            Console.BackgroundColor = fundoOriginal;
+            Console.WriteLine("  A B C D E F G H");
+        }
+
         public static void ImprimirPeca(Peca peca)
         {
             var pecaWrite = peca == null ? "-" : peca.ToString();

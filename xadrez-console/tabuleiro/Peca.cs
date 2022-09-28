@@ -2,7 +2,7 @@
 
 namespace xadrez_console.tabuleiro
 {
-    public class Peca
+    public abstract class Peca
     {
         public Posicao? Posicao { get; set; }
         public Cor Cor { get; protected set; }
@@ -21,5 +21,13 @@ namespace xadrez_console.tabuleiro
         {
             QteMovimentos++;
         }
+
+        public bool PodeMover(Posicao pos)
+        {
+            Peca p = Tab.Peca(pos);
+            return p == null || p.Cor != this.Cor;
+        }
+
+        public abstract bool[,] MovimentosPossiveis();
     }
 }

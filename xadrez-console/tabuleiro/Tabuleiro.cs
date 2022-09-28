@@ -40,11 +40,12 @@ namespace xadrez_console.tabuleiro
             if (ExistPeca(posicao))
                 throw new TabuleiroException("Já existe peça nessa posição");
             pecas[posicao.Linha, posicao.Coluna] = peca;
+            peca.Posicao = posicao;
         }
 
         public bool PosicaoValida(Posicao posicao)
         {
-            if (posicao.Linha < 0 || posicao.Linha > Linhas || posicao.Coluna < 0 || posicao.Coluna > Colunas)
+            if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)
                 return false;
 
             return true;
