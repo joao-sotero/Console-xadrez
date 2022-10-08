@@ -53,7 +53,6 @@ namespace xadrez
             return aux;
         }
 
-
         private void ColocarPecas()
         {
             ColocarNovaPeca('c', 1, new Torre(Tab, Cor.Branca));
