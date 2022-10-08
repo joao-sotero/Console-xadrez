@@ -4,7 +4,7 @@ namespace xadrez_console.tabuleiro
 {
     public abstract class Peca
     {
-        public Posicao? Posicao { get; set; }
+        public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
         public int QteMovimentos { get; set; }
         public Tabuleiro Tab { get; set; }
@@ -20,6 +20,10 @@ namespace xadrez_console.tabuleiro
         public void IncrementarQteMovimentos()
         {
             QteMovimentos++;
+        }
+        public void DecrementarQteMovimentos()
+        {
+            QteMovimentos--;
         }
 
         public bool PodeMover(Posicao pos)
