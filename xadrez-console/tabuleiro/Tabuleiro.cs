@@ -6,23 +6,23 @@ namespace xadrez_console.tabuleiro
     {
         public int Linhas { get; private set; }
         public int Colunas { get; private set; }
-        private Peca[,] pecas;
-
+        public Peca[,] Pecas { get; private set; }
+       
         public Tabuleiro(int linhas, int colunas)
         {
             Linhas = linhas;
             Colunas = colunas;
-            pecas = new Peca[linhas, colunas];
+            Pecas = new Peca[linhas, colunas];
         }
 
         public Peca Peca(int linha, int coluna)
         {
-            return pecas[linha, coluna];
+            return Pecas[linha, coluna];
         }
 
         public Peca Peca(Posicao posicao)
         {
-            return pecas[posicao.Linha, posicao.Coluna];
+            return Pecas[posicao.Linha, posicao.Coluna];
         }
 
         public Peca RemovePeca(Posicao posicao)
@@ -32,14 +32,14 @@ namespace xadrez_console.tabuleiro
 
             Peca aux = Peca(posicao);
             aux.Posicao = null;
-            pecas[posicao.Linha, posicao.Coluna] = null;
+            Pecas[posicao.Linha, posicao.Coluna] = null;
             return aux;
         }
         public void ColocaPeca(Peca peca, Posicao posicao)
         {
             if (ExistPeca(posicao))
                 throw new TabuleiroException("Já existe peça nessa posição");
-            pecas[posicao.Linha, posicao.Coluna] = peca;
+            Pecas[posicao.Linha, posicao.Coluna] = peca;
             peca.Posicao = posicao;
         }
 

@@ -13,22 +13,32 @@ namespace xadrez_console
                 var px = new PartidaXadrez();
                 while (!px.Terminada)
                 {
-                    Console.Clear();
-                    Tela.imprimirTabuleiro(px.Tab);
+                    try
+                    {
+                        Console.Clear();
+                        Tela.ImprimirPartida(px);
 
-                    Console.WriteLine();
-                    Console.Write("origem: ");
-                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
-                    
-                    Console.Clear();
-                    bool[,] posicoesPossiveis = px.Tab.Peca(origem).MovimentosPossiveis();
-                    Tela.imprimirTabuleiro(px.Tab, posicoesPossiveis);
-                    
-                    Console.WriteLine();
-                    Console.Write("Destino: ");
-                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                        Console.WriteLine();
+                        Console.Write("origem: ");
+                        Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                        px.ValidarPosicaoOrigem(origem);
 
-                    px.ExecutaMovimento(origem, destino);
+                        Console.Clear();
+                        bool[,] posicoesPossiveis = px.Tab.Peca(origem).MovimentosPossiveis();
+                        Tela.imprimirTabuleiro(px.Tab, posicoesPossiveis);
+
+                        Console.WriteLine();
+                        Console.Write("Destino: ");
+                        Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                        px.ValidarPosicaoDestino(origem, destino);
+
+                        px.RealizaJogada(origem, destino);
+                    }
+                    catch (TabuleiroException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Console.ReadLine();
+                    }
                 }
             }
             catch (TabuleiroException ex)
