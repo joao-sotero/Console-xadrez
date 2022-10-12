@@ -7,7 +7,7 @@ namespace xadrez_console.tabuleiro
         public int Linhas { get; private set; }
         public int Colunas { get; private set; }
         public Peca[,] Pecas { get; private set; }
-       
+
         public Tabuleiro(int linhas, int colunas)
         {
             Linhas = linhas;
@@ -22,12 +22,12 @@ namespace xadrez_console.tabuleiro
 
         public Peca Peca(Posicao posicao)
         {
-            return Pecas[posicao.Linha, posicao.Coluna];
+                return Pecas[posicao.Linha, posicao.Coluna];
         }
 
         public Peca RemovePeca(Posicao posicao)
         {
-            if(Peca(posicao) == null)
+            if (Peca(posicao) == null)
                 return null;
 
             Peca aux = Peca(posicao);

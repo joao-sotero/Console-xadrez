@@ -20,46 +20,47 @@ namespace xadrez_console.xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            pos.DefinirValores(pos.Linha - 1, pos.Coluna - 2);
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 2);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha - 2, pos.Coluna - 1);
+            pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha - 2, pos.Coluna + 1);
+            pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna + 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha - 1, pos.Coluna + 2);
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 2);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha + 1, pos.Coluna + 2);
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 2);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha + 2, pos.Coluna + 1);
+            pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna + 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha + 2, pos.Coluna - 1);
+            pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(pos.Linha + 1, pos.Coluna - 2);
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 2);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
             }
+
             return MovimentoPossiveis;
         }
     }

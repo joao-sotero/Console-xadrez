@@ -57,10 +57,18 @@ namespace xadrez_console
 
         public static PosicaoXadrez LerPosicaoXadrez()
         {
-            string s = Console.ReadLine();
-            char coluna = s[0];
-            int linha = int.Parse(s[1] + " ");
-            return new PosicaoXadrez(coluna, linha);
+            try
+            {
+                string s = Console.ReadLine();
+                char coluna = s[0];
+                int linha = int.Parse(s[1] + " ");
+                return new PosicaoXadrez(coluna, linha);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                //System.FormatException
+                throw new TabuleiroException("Digite uma posição valida");
+            }
         }
 
         public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
@@ -78,11 +86,12 @@ namespace xadrez_console
                         Console.BackgroundColor = fundoOriginal;
 
                     ImprimirPeca(tab.Peca(i, j));
+                    Console.BackgroundColor = fundoOriginal;
                 }
                 Console.WriteLine();
             }
             Console.BackgroundColor = fundoOriginal;
-            Console.WriteLine("  A B C D E F G H");
+            Console.WriteLine("  a b c d e f g h");
         }
 
         public static void ImprimirPeca(Peca peca)

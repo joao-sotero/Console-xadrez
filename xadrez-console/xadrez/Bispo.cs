@@ -27,7 +27,7 @@ namespace xadrez_console.xadrez
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;                
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
                     break;
-                pos.Linha--;
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
             }
             //nordeste
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
@@ -36,7 +36,7 @@ namespace xadrez_console.xadrez
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
                     break;
-                pos.Coluna++;
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
             }
             //sudeste
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
@@ -45,7 +45,7 @@ namespace xadrez_console.xadrez
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
                     break;
-                pos.Linha++;
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
             }
             //sudoeste
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
@@ -54,7 +54,7 @@ namespace xadrez_console.xadrez
                 MovimentoPossiveis[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
                     break;
-                pos.Coluna--;
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
             }
 
             return MovimentoPossiveis;
